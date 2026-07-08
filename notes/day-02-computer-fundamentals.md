@@ -88,3 +88,10 @@ Before building AI healthcare systems, I need to understand the foundation that 
 - How does the CPU execute instructions so quickly?
 - How do AI models use computer hardware?
 - How do cloud servers work?
+
+
+## Mini Challenge Reflection
+
+Today I wrote my first JavaScript program.
+I learned how software instructions are executed by computers.
+This foundation will help me understand how AI systems are built.
