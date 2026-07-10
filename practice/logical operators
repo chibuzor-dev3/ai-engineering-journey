@@ -1,0 +1,8 @@
+let sampleCollected = true;
+let paymentComplete = false;
+
+if (sampleCollected && paymentComplete) {
+    console.log("Begin laboratory analysis.");
+} else {
+    console.log("Cannot begin analysis.");
+}
