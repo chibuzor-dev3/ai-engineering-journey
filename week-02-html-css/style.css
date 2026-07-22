@@ -72,8 +72,12 @@ header{
 
 
 nav ul{
+    display:flex;
+    justify-content:center;
+    gap:25px;
     list-style:none;
     padding:0;
+    flex-wrap:wrap;
 }
 
 nav li{
@@ -145,4 +149,52 @@ button{
 
 button:hover{
     background:#1d4ed8;
+}
+
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    table{
+        font-size:14px;
+    }
+
+    form{
+        width:100%;
+    }
+}
+
+.tech-container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.tech-card{
+    background:#1d4ed8;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    min-width:120px;
+    text-align:center;
+    font-weight:bold;
 }
