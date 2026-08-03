@@ -1,44 +1,33 @@
-let paragraphs = document.querySelectorAll(".text");
+let body = document.body;
 
-let redButton = document.querySelector("#redBtn");
-let blueButton = document.querySelector("#blueBtn");
-let resetButton = document.querySelector("#resetBtn");
+let paragraph = document.getElementById("paragraph");
 
-// Turn all paragraphs red
-redButton.addEventListener("click", function () {
+let darkButton = document.getElementById("darkBtn");
 
-    paragraphs.forEach(function (paragraph) {
+let lightButton = document.getElementById("lightBtn");
 
-        paragraph.style.color = "red";
-        paragraph.style.fontWeight = "bold";
-        paragraph.style.fontSize = "24px";
+let toggleButton = document.getElementById("toggleBtn");
 
-    });
+darkButton.addEventListener("click", function(){
+    
+    body.classList.add("dark");
 
-});
-
-// Turn all paragraphs blue
-blueButton.addEventListener("click", function () {
-
-    paragraphs.forEach(function (paragraph) {
-
-        paragraph.style.color = "blue";
-        paragraph.style.fontWeight = "bold";
-        paragraph.style.fontSize = "24px";
-
-    });
+    paragraph.classList.add("highlight");
 
 });
 
-// Reset all paragraphs
-resetButton.addEventListener("click", function () {
+lightButton.addEventListener("click", function(){
 
-    paragraphs.forEach(function (paragraph) {
+    body.classList.remove("dark");
+    
+    paragraph.classList.remove("highlight");
 
-        paragraph.style.color = "black";
-        paragraph.style.fontWeight = "normal";
-        paragraph.style.fontSize = "16px";
+});
 
-    });
+toggleButton.addEventListener("click", function(){
+
+    body.classList.toggle("dark");
+
+    paragraph.classList.toggle("highlight");
 
 });

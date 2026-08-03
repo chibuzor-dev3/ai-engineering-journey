@@ -1,19 +1,35 @@
-<h1 id="title">Learning querySelector()</h1>
+<h1 id="title">Learning classList</h1>
 
-<p class="text">Paragraph One</p>
-<p class="text">Paragraph Two</p>
-<p class="text">Paragraph Three</p>
+<style>
 
-<button id="redBtn">
-    Turn Red
-</button>
+.dark{
 
-<button id="blueBtn">
-    Turn Blue
-</button>
+    background-color:black;
 
-<button id="resetBtn">
-    Reset
-</button>
+    color:white;
+
+}
+
+.highlight{
+
+    color:blue;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+</style>
+
+<p id="paragraph">
+    JavaScript makes webpages interactive.
+</p>
+
+<button id="darkBtn">Dark Mode</button>
+
+<button id="lightBtn">Light Mode</button>
+
+<button id="toggleBtn">Toggle Mode</button>
 
 <script src="../practice/dom.js"></script>
