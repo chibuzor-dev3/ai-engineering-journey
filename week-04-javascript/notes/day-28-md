@@ -1,0 +1,230 @@
+# Day 28 – JavaScript Portfolio Enhancement
+
+## Overview
+
+Today I transformed my portfolio from a simple static website into a more interactive and professional web application.
+
+---
+
+# Part 1 – Dark Mode Toggle
+
+## What I Learned
+
+Dark mode allows users to switch between light and dark themes.
+
+Instead of changing every element individually with JavaScript, we simply add or remove a CSS class.
+
+Example:
+
+```javascript
+document.body.classList.toggle("dark-mode");
+```
+
+When the button is clicked, JavaScript adds or removes the `dark-mode` class from the `<body>` element.
+
+CSS then changes the appearance automatically.
+
+---
+
+# Part 2 – Local Storage
+
+## What I Learned
+
+Normally, refreshing a webpage resets everything.
+
+Local Storage allows browsers to remember information even after the page is refreshed.
+
+Save data:
+
+```javascript
+localStorage.setItem("theme", "dark");
+```
+
+Retrieve data:
+
+```javascript
+localStorage.getItem("theme");
+```
+
+Remove data:
+
+```javascript
+localStorage.removeItem("theme");
+```
+
+This allows the portfolio to remember the user's preferred theme.
+
+---
+
+# Part 3 – Scroll To Top Button
+
+## What I Learned
+
+A floating button appears after scrolling down the page.
+
+JavaScript listens for scrolling:
+
+```javascript
+window.addEventListener("scroll", () => {});
+```
+
+If the user scrolls more than 300 pixels:
+
+```javascript
+scrollBtn.style.display = "block";
+```
+
+Otherwise:
+
+```javascript
+scrollBtn.style.display = "none";
+```
+
+Clicking the button smoothly returns the page to the top.
+
+```javascript
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
+```
+
+---
+
+# Part 4 – Smooth Navigation
+
+## What I Learned
+
+Instead of jumping instantly to sections, navigation links scroll smoothly.
+
+Using CSS:
+
+```css
+html{
+    scroll-behavior:smooth;
+}
+```
+
+Navigation links were also improved using hover animations.
+
+Example:
+
+```css
+nav a{
+    transition: color .3s ease,
+                transform .3s ease;
+}
+
+nav a:hover{
+    color:#60a5fa;
+    transform:translateY(-3px);
+}
+```
+
+Animated underline:
+
+```css
+nav a::after{
+    width:0;
+    transition:width .3s ease;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+```
+
+---
+
+# Part 5 – Scroll Reveal Animation
+
+## What I Learned
+
+Sections fade into view when they enter the screen.
+
+Hidden state:
+
+```css
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+}
+```
+
+Visible state:
+
+```css
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+```
+
+JavaScript uses the Intersection Observer API.
+
+```javascript
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+```
+
+Each hidden section is observed.
+
+When it enters the viewport, the `show` class is added and the animation begins.
+
+---
+
+# New JavaScript Concepts Learned
+
+- classList.add()
+- classList.remove()
+- classList.toggle()
+- Local Storage
+- setItem()
+- getItem()
+- window.scrollTo()
+- window.scrollY
+- scroll event
+- Intersection Observer API
+- CSS transitions
+- CSS transform
+- CSS opacity
+- Smooth scrolling
+
+---
+
+# Key Takeaways
+
+✓ Dark mode can be controlled by adding or removing CSS classes.
+
+✓ Local Storage remembers user preferences.
+
+✓ Scroll events make pages interactive.
+
+✓ Smooth scrolling creates a better user experience.
+
+✓ Hover animations improve navigation.
+
+✓ Intersection Observer allows animations when elements become visible.
+
+✓ Combining HTML, CSS and JavaScript creates professional websites.
+
+---
+
+# Day 28 Complete ✅
+
+Portfolio Features Added
+
+- Dark Mode
+- Theme Memory
+- Scroll To Top Button
+- Smooth Navigation
+- Navigation Hover Animation
+- Animated Underline
+- Scroll Reveal Animation
+
+The portfolio now looks and behaves much more like a professional developer portfolio.
