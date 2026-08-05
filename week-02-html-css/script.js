@@ -105,3 +105,193 @@ hiddenSections.forEach(section => {
     observer.observe(section);
 
 });
+
+const projects = [
+
+    {
+    title: "Personal Portfolio",
+    description: "Responsive portfolio website.",
+    category: "HTML/CSS",
+    technologies: "HTML, CSS, JavaScript",
+    github: "https://github.com/chibuzor-dev3/portfolio"
+},
+
+    {
+        title: "Dark Mode Portfolio",
+        description: "Added a dark and light theme with Local Storage to remember the user's preference.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+        title: "Scroll To Top Button",
+        description: "Built a floating button that smoothly scrolls users back to the top of the page.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+        title: "DOM Manipulation Practice",
+        description: "Practiced selecting, modifying, creating, and removing HTML elements using JavaScript.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+        title: "Form Validation",
+        description: "Built a contact form with JavaScript validation to check user input before submission.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+        title: "Higher-Order Array Methods",
+        description: "Used map(), filter(), find(), and reduce() to manipulate arrays efficiently.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+        title: "ES6 JavaScript Practice",
+        description: "Practiced arrow functions, template literals, destructuring, spread, and rest operators.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+        title: "Expense Tracker",
+        description: "Tracks daily expenses with JavaScript.",
+        category: "JavaScript",
+        technologies: "HTML, CSS, JavaScript",
+        github: "https://github.com/chibuzor-dev3/project"
+    },
+
+    {
+    title: "Weather Dashboard",
+    description: "Displays live weather information.",
+    category: "API",
+    technologies: "HTML, CSS, JavaScript",
+    github: "https://github.com/chibuzor-dev3/project"
+},
+
+{
+    title: "Currency Converter",
+    description: "Converts currencies using an exchange rate API.",
+    category: "API",
+    technologies: "HTML, CSS, JavaScript",
+    github: "https://github.com/chibuzor-dev3/project"
+},
+
+];
+
+const container = document.getElementById("projects-container");
+
+function displayProjects(projectList){
+
+    container.innerHTML = "";
+
+    projectList.forEach(project => {
+
+        const card = document.createElement("div");
+
+        card.classList.add("project-card");
+
+       card.innerHTML = `
+    <h3>${project.title}</h3>
+    <p>${project.description}</p>
+    <span class="badge">${project.category}</span>
+
+    <br><br>
+
+    <button class="details-btn">
+        View Details
+    </button>
+`;
+
+const detailsButton = card.querySelector(".details-btn");
+
+detailsButton.addEventListener("click", () => {
+
+    document.getElementById("modalTitle").textContent = project.title;
+
+    document.getElementById("modalDescription").textContent = project.description;
+
+    document.getElementById("modalCategory").textContent = project.category;
+
+    document.getElementById("modalTechnologies").textContent =
+        project.technologies || "Not specified";
+
+    document.getElementById("modalGithub").href =
+        project.github || "#";
+
+    document.getElementById("projectModal").style.display = "flex";
+
+});
+
+        container.appendChild(card);
+
+    });
+
+}
+
+displayProjects(projects);
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        // Remove active class from every button
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        // Highlight the clicked button
+        this.classList.add("active");
+
+        const category = this.dataset.category;
+
+        if(category === "All"){
+
+            displayProjects(projects);
+
+        }else{
+
+            const filteredProjects = projects.filter(project => project.category === category);
+
+            displayProjects(filteredProjects);
+
+        }
+
+    });
+
+});
+
+const modal = document.getElementById("projectModal");
+
+const closeButton = document.querySelector(".close-btn");
+
+closeButton.addEventListener("click", () => {
+
+    modal.style.display = "none";
+
+});
+
+window.addEventListener("click", (event) => {
+
+    if (event.target === modal) {
+
+        modal.style.display = "none";
+
+    }
+
+});

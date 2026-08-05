@@ -1,0 +1,102 @@
+# Day 29 – Dynamic Portfolio with JavaScript
+
+## What I Learned
+
+Today I transformed my portfolio from a static website into a dynamic portfolio using JavaScript.
+
+### Part 1 – Arrays of Objects
+
+- Learned how to store multiple projects inside an array.
+- Each project is represented as an object.
+- Objects contain properties such as:
+  - title
+  - description
+  - category
+  - technologies
+  - github
+  - liveDemo
+
+Example:
+
+```javascript
+const projects = [
+    {
+        title: "Portfolio",
+        description: "Responsive portfolio website.",
+        category: "HTML/CSS"
+    }
+];
+```
+
+### Part 2 – Dynamic Project Cards
+
+Learned how to:
+
+- createElement()
+- appendChild()
+- innerHTML
+- forEach()
+
+Instead of writing HTML manually, JavaScript creates project cards automatically.
+
+### Part 3 – Project Filtering
+
+Learned:
+
+- filter()
+- data attributes
+- addEventListener()
+- classList.add()
+- classList.remove()
+
+Built filter buttons that display only selected project categories.
+
+### Part 4 – Project Modal
+
+Learned how to:
+
+- create a popup (modal)
+- dynamically insert project information
+- close the modal
+- use multiple event listeners
+
+### Part 5 – Portfolio Polish
+
+Improved:
+
+- project cards
+- hover animations
+- badges
+- responsiveness
+- modal styling
+
+## Key JavaScript Concepts
+
+- Arrays
+- Objects
+- Arrays of Objects
+- createElement()
+- appendChild()
+- innerHTML
+- querySelector()
+- getElementById()
+- addEventListener()
+- forEach()
+- filter()
+- classList
+- template literals
+
+## Real-World Applications
+
+The same concepts are used in:
+
+- Netflix
+- Amazon
+- GitHub
+- LinkedIn
+- Portfolio websites
+- Dashboards
+
+## Reflection
+
+Today was one of the biggest milestones in my JavaScript journey. I learned how modern websites generate content dynamically instead of writing everything directly in HTML. My portfolio is now much more scalable and easier to maintain.
