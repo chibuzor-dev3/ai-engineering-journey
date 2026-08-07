@@ -190,6 +190,18 @@ const projects = [
 
 ];
 
+let preferences = {
+
+    theme: "light",
+
+    sort: "default",
+
+    filter: "All",
+
+    search: ""
+
+};
+
 const container = document.getElementById("projects-container");
 
 function displayProjects(projectList){
@@ -213,6 +225,14 @@ function displayProjects(projectList){
         View Details
     </button>
 `;
+
+if (project.category === "JavaScript") {
+    card.style.borderLeft = "5px solid #facc15";
+} else if (project.category === "HTML/CSS") {
+    card.style.borderLeft = "5px solid #3b82f6";
+} else if (project.category === "API") {
+    card.style.borderLeft = "5px solid #10b981";
+}
 
 const detailsButton = card.querySelector(".details-btn");
 
@@ -272,6 +292,10 @@ filterButtons.forEach(button => {
 
         }
 
+        preferences.filter = category;
+
+savePreferences();
+
     });
 
 });
@@ -295,3 +319,116 @@ window.addEventListener("click", (event) => {
     }
 
 });
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+
+    const searchText = searchInput.value.toLowerCase();
+
+    const filteredProjects = projects.filter(project =>
+
+    project.title.toLowerCase().includes(searchText) ||
+
+    project.description.toLowerCase().includes(searchText) ||
+
+    project.category.toLowerCase().includes(searchText)
+
+);
+
+    displayProjects(filteredProjects);
+
+    preferences.search = searchInput.value;
+
+savePreferences();
+
+});
+
+const sortProjects = document.getElementById("sortProjects");
+
+sortProjects.addEventListener("change", () => {
+
+    let sortedProjects = [...projects];
+
+    switch(sortProjects.value){
+
+        case "az":
+
+            sortedProjects.sort((a,b)=>
+
+                a.title.localeCompare(b.title)
+
+            );
+
+            break;
+
+        case "za":
+
+            sortedProjects.sort((a,b)=>
+
+                b.title.localeCompare(a.title)
+
+            );
+
+            break;
+
+        case "category":
+
+            sortedProjects.sort((a,b)=>
+
+                a.category.localeCompare(b.category)
+
+            );
+
+            break;
+
+        default:
+
+            sortedProjects = [...projects];
+
+    }
+
+    displayProjects(sortedProjects);
+
+    localStorage.setItem("projectSort", sortProjects.value);
+
+    preferences.sort = sortProjects.value;
+
+savePreferences();
+
+
+});
+
+function savePreferences(){
+
+    localStorage.setItem(
+
+        "portfolioPreferences",
+
+        JSON.stringify(preferences)
+
+    );
+
+}
+
+function loadPreferences(){
+
+    const saved = localStorage.getItem("portfolioPreferences");
+
+    if(saved){
+
+        preferences = JSON.parse(saved);
+
+    }
+
+}
+
+const savedSort = localStorage.getItem("projectSort");
+
+if(savedSort){
+
+    sortProjects.value = savedSort;
+
+    sortProjects.dispatchEvent(new Event("change"));
+
+}
