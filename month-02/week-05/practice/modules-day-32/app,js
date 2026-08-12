@@ -1,0 +1,5 @@
+import user from "./user.js";
+
+console.log(user.name);
+console.log(user.role);
+console.log(user.goal);
